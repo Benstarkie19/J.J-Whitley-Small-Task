@@ -7,5 +7,5 @@ gitclone https://github.com/Benstarkie19/J.J-Whitley-Small-Task.git    -- Clone 
 
 gulp serve   -- Run the website
 
-npmrunbuild -- Build the webstie for dis
+npm run build -- Build the webstie for dis
 
