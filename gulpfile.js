@@ -9,6 +9,10 @@ const del = require('del');
 const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
 const { argv } = require('yargs');
+const gulp = require('gulp');
+const concatCss = require('gulp-concat-css');
+const cssNano = require('gulp-cssnano')
+const sass = require('gulp-sass');
 
 const $ = gulpLoadPlugins();
 const server = browserSync.create();
@@ -18,6 +22,39 @@ const port = argv.port || 9000;
 const isProd = process.env.NODE_ENV === 'production';
 const isTest = process.env.NODE_ENV === 'test';
 const isDev = !isProd && !isTest;
+
+
+gulp.task('styles', () => {
+    return gulp.src('sass/**/*.scss')
+        .pipe(sass().on('error', sass.logError))
+        .pipe(gulp.dest('./css/'));
+});
+
+gulp.task('clean', () => {
+    return del([
+        'css/main.css',
+    ]);
+});
+
+gulp.task('default', gulp.series(['clean', 'styles']));
+
+gulp.task('sass', function sassFunc(){
+  return gulp.src('./sass/*.scss')
+  .pipe(sass())
+  .pipe(concatCss('styles.css'))
+  .pipe(gulp.dest('./css'))
+});
+
+gulp.task('minify', function minifyFunc() {
+  return gulp.src('./css/styles.css')
+    .pipe(cssnano())
+    .pipe(gulp.dest('./css'));
+});
+
+gulp.task('watch', function watchFunc() {
+  gulp.watch('./sass/*.scss', gulp.series('sass', 'minify'));
+});
+
 
 function styles() {
   return src('app/styles/*.scss', {
@@ -201,7 +238,7 @@ function startDistServer() {
     notify: false,
     port,
     server: {
-      baseDir: 'dist',
+      baseDir: 'docs',
       routes: {
         '/node_modules': 'node_modules'
       }
