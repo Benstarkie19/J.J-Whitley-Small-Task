@@ -1,4 +1,4 @@
-// generated on 2021-02-04 using generator-webapp 4.0.0-8
+// generated on 2021-02-17 using generator-webapp 4.0.0-8
 const { src, dest, watch, series, parallel, lastRun } = require('gulp');
 const gulpLoadPlugins = require('gulp-load-plugins');
 const fs = require('fs');
