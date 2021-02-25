@@ -18,6 +18,9 @@ body {
 	font-weight: 300;
 	background-color: #fff;
 }
+
+
+
 .container {
 	position: relative;
 	background: #3e6e5c;
@@ -112,6 +115,19 @@ h2 {
 	font-weight: 500;
 	font-family: 'Montserrat', sans-serif;
 }
+
+.text {
+	text-align: center;
+	padding-top: 1em;
+}
+.text p {
+	text-align: justify;
+	padding-bottom: 1em;
+	line-height: 1.4em;
+	font-size: large;
+}
+
+
 a {
 	text-decoration: none;
 	color: #090b08;
@@ -291,17 +307,10 @@ a.nav-link:hover, a.nav-link:active, a.nav-link:focus {
 	align-items: center;
 	max-width: 100%;
 }
-.text {
-	text-align: center;
-	padding-top: 1em;
-}
-.text p {
-	text-align: justify;
-	padding-bottom: 1em;
-	line-height: 1.4em;
-	font-size: large;
-}
-/* About Section */
+
+
+
+/* About Section */    /* About Section */   /* About Section */
 #about .h1 {
 	text-align: center;
 }
@@ -320,8 +329,8 @@ section#about {
 	padding-bottom: 0;
 	text-align: left;
 }
-/* Contact S
-ection */
+   
+/* Contact   */  /* Contact   */  /* Contact   */ /* Contact   */
 
 section#contact {
 	padding: 3em 2em .5em;
@@ -413,7 +422,9 @@ input {
 .copy-wrapper a {
 	font-weight: 700;
 }
-/* Responsive Style */
+
+
+/* Responsive Style */   /* Responsive Style */    /* Responsive Style */    /* Responsive Style */
 
 @media(min-width: 320px) {}
 @media(min-width: 576px) {
